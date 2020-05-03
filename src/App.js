@@ -5,7 +5,7 @@ import './App.css';
 const DEFAULT_LMIT = 100;
 const DEFAULT_TYPE = 'w';
 const ACCEPTED_TYPES = ['w', 'c'];
-const MAX_LIMIT = 1000;
+const MAX_LIMIT = 5000;
 
 function App() {
   const lorem = new LoremIpsum();
@@ -41,7 +41,10 @@ function App() {
         <span className="textpage__stat-pill">{wordsCount} words</span>
         <span className="textpage__stat-pill">{charCount} characters</span>
         {isOverLimit && 
-          <span className="textpage__stat-pill textpage__stat-pill--emp">Reduced to max limit: {MAX_LIMIT}</span>
+          <span className="textpage__stat-pill textpage__stat-pill--emp">
+            Reduced to max limit:&nbsp;
+            {MAX_LIMIT} {type === 'c' ? 'characters' : 'words'}
+          </span>
         }
       </div>
       <div className="textpage__content">
